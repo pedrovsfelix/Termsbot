@@ -51,7 +51,7 @@ class App:
             for _, line in table.iterrows():
                 document = Document(path_doc)
                 
-                referencies = {
+                references = {
                     "NOME": line["NOME"],
                     "CARGO": line["CARGO"],
                     "EMPRESA": line["EMPRESA"],
@@ -60,7 +60,7 @@ class App:
                 }
                 
                 for paragraph in document.paragraphs:
-                    for code, value in referencies.items():
+                    for code, value in references.items():
                         if code in paragraph.text:
                             paragraph.text = paragraph.text.replace(code, value)
                 
@@ -69,7 +69,15 @@ class App:
         
         except Exception as e:
             messagebox.showerror("Error", f"Ocorreu um erro: {e}")
+
+    def initBot(self):
+        path_list = self.label_filelist.cget("text")
+        path_doc = self.label_filedocx.cget("text")
         
+        if path_doc and path_list:
+            self.archives()
+        else:
+            messagebox.showerror("Error", "Vocë precisa informar os arquivos.")        
 
 if __name__ == "__main__":
     app = App()
