@@ -20,10 +20,10 @@ class App:
         CTkButton(self.root, width=320, height=40, command=self.browserList, text='Buscar Lista', font=("Arial", 21)).place(x=20, y=70)
         
         self.label_filedocx = CTkLabel(self.root, text='', font=("Arial", 12))
-        self.label_filedocx.place(x=10, y=40)
-        CTkButton(self.root, width=320, height=40, text='Buscar Termo', font=("Arial", 21)).place(x=20, y=150)
+        self.label_filedocx.place(x=20, y=120)
+        CTkButton(self.root, width=320, height=40, command=self.browserTerms, text='Buscar Termo', font=("Arial", 21)).place(x=20, y=150)
         
-        CTkButton(self.root, width=320, height=40, text='Gerar Termos', font=("Arial", 21)).place(x=20, y=240)
+        CTkButton(self.root, width=320, height=40, command=self.initBot, text='Gerar Termos', font=("Arial", 21)).place(x=20, y=240)
     
     def browserList(self):
         file = filedialog.askopenfile(initialdir="C:/Users/pedro.felix/Documents/Projects/Python/TermsBot/", title="Selecione o arquivo da lista", filetypes=(("Excel Files", "*.xlsx*"), ("All Files", "*.*")))
